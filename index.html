@@ -1,5 +1,44 @@
 <html>
+    <head> 
+        <style>
+        html, body {
+            height:100%;
+        }
+        .bg-img {
+            background-image: url('./assets/background.png');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+            /* display: flex; */
+            /* align-items: center; */
+            /* justify-content: center; */
+            height: 1000px
+        }
+        .flex-container {
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); 
+            text-align: center;
+            text-align-last: center;
+        }
+        .welcome {
+            font-family: "Brush Script MT";
+            color: purple;
+            /* min-width: 200px;
+            max-width: 500px; */
+            font-size: 4.5vmin;
+        }
+        </style> 
+    </head>
     <body>
-        <iframe src="https://drive.google.com/file/d/1gAi9Hm7qJq-Y3wl6PGQ3s9b3Kz4gx3gC/preview" width="640" height="480" allow="autoplay"></iframe>
+        <div class="bg-img">
+            <div class="flex-container">
+                <p class="welcome">Welcome to <br />Deniz & Ruzan's <br /> Wedding Memories</p><br />
+                <iframe src="https://drive.google.com/file/d/1gAi9Hm7qJq-Y3wl6PGQ3s9b3Kz4gx3gC/preview" width="640" height="480" allow="autoplay"></iframe>
+            </div>
+        </div>
     </body>
 </html>
