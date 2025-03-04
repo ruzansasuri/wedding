@@ -1,5 +1,6 @@
 <html>
     <head> 
+        <script type="text/javascript" src="./src/photo_changer.js"></script>
         <style>
         html, body {
             height:100%;
@@ -8,36 +9,80 @@
             background-image: url('./assets/background.png');
             background-repeat: no-repeat;
             background-attachment: fixed;
-            background-size: 100% 100%;
-            /* display: flex; */
-            /* align-items: center; */
-            /* justify-content: center; */
-            height: 1000px
+            background-size: cover;
+            height: 300vh;
         }
-        .flex-container {
+        .grid-container {
+            display: grid;
+            /* grid-template-columns: repeat(3, 1fr); */
+            grid-template-areas: 'A B C' 'A B C' 'A B C';
+            gap: 5%;
+        }
+        .grid-item {
+            position: static;
             display: flex;
-            flex-direction: column;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%); 
-            text-align: center;
-            text-align-last: center;
+            justify-content: center;
+            align-items: center;
+        }
+        .left-button {
+            justify-self: end;
+            padding-right: 5%;
+        }
+        .right-button {
+            justify-self: start;
+            padding-left: 5%;
         }
         .welcome {
+            background-color: pink;
             font-family: "Brush Script MT";
             color: purple;
-            /* min-width: 200px;
-            max-width: 500px; */
             font-size: 4.5vmin;
+            text-align: center;
+        }
+        .right {
+            background-color: pink;
+            border: none;
+            width: 3vw;
+            height: 280;
+            font-size: 1.5vw;
+            color: purple;
+            border-radius: 0.5vw;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .left {
+            background-color: pink;
+            border: none;
+            width: 3vw;
+            height: 280;
+            font-size: 1.5vw;
+            color: purple;
+            border-radius: 0.5vw;
+            font-weight: bold;
+            cursor: pointer;
         }
         </style> 
     </head>
-    <body>
+    <body onload="onLoad()">
         <div class="bg-img">
-            <div class="flex-container">
-                <p class="welcome">Welcome to <br />Deniz & Ruzan's <br /> Wedding Memories</p><br />
-                <iframe src="https://drive.google.com/file/d/1gAi9Hm7qJq-Y3wl6PGQ3s9b3Kz4gx3gC/preview" width="640" height="480" allow="autoplay"></iframe>
+            <div class="grid-container"><!--"flex-container">-->
+                <div class="grid-item"></div>
+                <div class="grid-item"><div class="welcome">Welcome to <br />Deniz & Ruzan's <br /> Wedding Memories</div></div>
+                <div class="grid-item"></div>
+                <div class="grid-item left-button">
+                    <button class="left" onclick="onPrevImage()" ><</button>
+                </div>
+                <div class="grid-item">
+                    <iframe id="photo_iframe" src="" width="640" height="480" allow="autoplay"></iframe>
+                </div>
+                <div class="grid-item right-button">
+                    <button class="right" onclick="onNextImage()">></button>
+                </div>
+                <div class="grid-item"></div>
+                <div class="grid-item">
+                    <iframe id="folder_iframe" onClick="onClickFolder()" width="100%" height="500" src="https://drive.google.com/embeddedfolderview?id=1UH4ghK4jaRIL7rNyf2nfz2SlT1hxumUs#grid" allow="autoplay"></iframe>
+                </div>
+                <div class="grid-item"></div>
             </div>
         </div>
     </body>
